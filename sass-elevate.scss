@@ -1,99 +1,121 @@
-/*  General Styles  */
-body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-h2 {
-    font-size: 32px;
-}
+// === Variables ===
+$font-main: Arial, sans-serif;
+$text-color: #333;
+$brand-1: #ff7e5f;
+$brand-2: #feb47b;
+$bg-light: #f3f3f3;
+$bg-dark: #222;
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+$shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+$radius-card: 10px;
+$radius-btn: 8px;
+$btn-pad: 15px 30px;
+
+$h2-size: 32px;
+$h1-size: 48px;
+$body-size: 18px;
+
+// === Base ===
+body {
+  font-family: $font-main;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
 }
-.navbar .logo {
+h2 { font-size: $h2-size; }
+
+// === Navbar ===
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: $shadow;
+  margin-bottom: 10px;
+
+  .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #ff7e5f;
-}
-.navbar .nav-links {
+    color: $brand-1;
+  }
+
+  .nav-links {
     list-style: none;
     padding: 0;
-}
-.navbar .nav-links li {
-    display: inline-block;
-    margin: 0 10px;
-}
-.navbar .nav-links a {
-    text-decoration: none;
-    font-weight: bold;
-}
-.navbar .nav-links a:hover {
-    color: #ff7e5f;
-}
 
-/* Primary Button */
-.primary-btn {
-    display: inline-block;
-    padding: 15px 30px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(45deg, #ff7e5f, #feb47b);
-}
-.primary-btn:hover {
-    box-shadow: 0px 5px 15px rgba(255, 126, 95, 0.4);
-}
-
-/* Main Section */
-.main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 100px 10px;
-}
-.main .content { width: 50%; }
-.main h1 { font-size: 48px; color: #ff7e5f; }
-.main p { font-size: 18px; }
-.main img { width: 40%; }
-
-/* Features & Plans Sections */
-.features { background: #f3f3f3; }
-.center-section { text-align: center; padding: 50px 10px; }
-.card-list { display: flex; justify-content: space-between; }
-.card {
-    background: white;
-    padding: 20px;
-    width: 27%;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 20px;
-    background: #222;
-    color: white;
-}
-
-/* Responsive */
-@media screen and (max-width: 992px) {
-    .card-list {
-        flex-direction: column;
-        align-items: center;
-        gap: 50px;
+    li {
+      display: inline-block;
+      margin: 0 10px;
     }
-    .card { width: 80%; }
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover { color: $brand-1; }
+    }
+  }
+}
+
+// === Primary Button ===
+.primary-btn {
+  display: inline-block;
+  padding: $btn-pad;
+  cursor: pointer;
+  font-size: $body-size;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: $radius-btn;
+  background: linear-gradient(45deg, $brand-1, $brand-2);
+
+  &:hover {
+    box-shadow: 0 5px 15px rgba($brand-1, 0.4);
+  }
+}
+
+// === Main Section ===
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 10px;
+
+  .content { width: 50%; }
+  h1 { font-size: $h1-size; color: $brand-1; }
+  p  { font-size: $body-size; }
+  img{ width: 40%; }
+}
+
+// === Sections & Cards ===
+.features { background: $bg-light; }
+.center-section { text-align: center; padding: 50px 10px; }
+
+.card-list { display: flex; justify-content: space-between; }
+
+.card {
+  background: white;
+  padding: 20px;
+  width: 27%;
+  border-radius: $radius-card;
+  box-shadow: $shadow;
+}
+
+// === Footer ===
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: $bg-dark;
+  color: white;
+}
+
+// === Responsive ===
+@media screen and (max-width: 992px) {
+  .card-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .card { width: 80%; }
 }

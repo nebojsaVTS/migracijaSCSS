@@ -1,0 +1,37 @@
+@use "sass:map";
+
+// Breakpoints i mixini
+$breakpoints: (
+  xs: 400px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@mixin respond($bp) {
+  $size: map.get($breakpoints, $bp);
+  @if $size == null { @error "Unknown breakpoint: #{$bp}"; }
+  @media screen and (max-width: $size) { @content; }
+}
+
+@mixin max($w) {
+  @media screen and (max-width: $w) { @content; }
+}
+
+// Promenljive
+$font-main: Arial, sans-serif;
+$text-color: #333;
+$brand-1: #ff7e5f;
+$brand-2: #feb47b;
+$bg-light: #f3f3f3;
+$bg-dark: #222;
+
+$shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+$radius-card: 10px;
+$radius-btn: 8px;
+$btn-pad: 15px 30px;
+
+$h2-size: 32px;
+$h1-size: 48px;
+$body-size: 18px;

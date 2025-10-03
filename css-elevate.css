@@ -1,12 +1,18 @@
-body {
-  font-family: Arial, sans-serif;
-  color: #333;
-  margin: 0;
-  padding: 0;
+@charset "UTF-8";
+.primary-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
 }
-
-h2 {
-  font-size: 32px;
+.primary-btn:hover {
+  box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
 }
 
 .navbar {
@@ -34,27 +40,45 @@ h2 {
 .navbar .nav-links a {
   text-decoration: none;
   font-weight: bold;
+  color: #333;
 }
 .navbar .nav-links a:hover {
   color: #ff7e5f;
 }
 
-.primary-btn {
-  display: inline-block;
-  padding: 15px 30px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+/* XS – centriran nav */
+@media screen and (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .navbar .nav-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+  }
+  .navbar .nav-links li {
+    margin: 0;
+  }
+  .navbar .primary-btn {
+    align-self: center;
+  }
 }
-.primary-btn:hover {
-  box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
+/* Base */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
+h2 {
+  font-size: 32px;
+}
+
+/* Main section */
 .main {
   display: flex;
   align-items: center;
@@ -75,6 +99,7 @@ h2 {
   width: 40%;
 }
 
+/* Sections & cards */
 .features {
   background: #f3f3f3;
 }
@@ -97,6 +122,7 @@ h2 {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer */
 .footer {
   text-align: center;
   padding: 20px;
@@ -104,6 +130,7 @@ h2 {
   color: white;
 }
 
+/* Responsive lg (isto kao ranije) */
 @media screen and (max-width: 992px) {
   .card-list {
     flex-direction: column;
@@ -114,27 +141,9 @@ h2 {
     width: 80%;
   }
 }
+/* XS – naslov i slika jedan ispod drugog + centar */
 @media screen and (max-width: 576px) {
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .navbar .nav-links {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 8px;
-  }
-  .navbar .nav-links li {
-    margin: 0;
-  }
-  .navbar .primary-btn {
-    align-self: center;
-  }
   .main {
-    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;

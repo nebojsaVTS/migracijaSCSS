@@ -1,0 +1,59 @@
+@use 'variables' as *;
+
+/* Base */
+body { font-family: $font-main; color: $text-color; margin: 0; padding: 0; }
+h2 { font-size: $h2-size; }
+
+/* Main section */
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 10px;
+
+  .content { width: 50%; }
+  h1 { font-size: $h1-size; color: $brand-1; }
+  p  { font-size: $body-size; }
+  img{ width: 40%; }
+}
+
+/* Sections & cards */
+.features { background: $bg-light; }
+.center-section { text-align: center; padding: 50px 10px; }
+
+.card-list { display: flex; justify-content: space-between; }
+
+.card {
+  background: white;
+  padding: 20px;
+  width: 27%;
+  border-radius: $radius-card;
+  box-shadow: $shadow;
+}
+
+/* Footer */
+.footer { text-align: center; padding: 20px; background: $bg-dark; color: white; }
+
+/* Responsive lg (isto kao ranije) */
+@include respond(lg) {
+  .card-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .card { width: 80%; }
+}
+
+/* XS – naslov i slika jedan ispod drugog + centar */
+@include max(576px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 60px 10px;
+    text-align: center;
+
+    .content { width: 100%; }
+    img { width: min(80%, 320px); }
+  }
+}

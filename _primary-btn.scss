@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+.primary-btn {
+  display: inline-block;
+  padding: $btn-pad;
+  cursor: pointer;
+  font-size: $body-size;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: $radius-btn;
+  background: linear-gradient(45deg, $brand-1, $brand-2);
+
+  &:hover { box-shadow: 0 5px 15px rgba($brand-1, 0.4); }
+}

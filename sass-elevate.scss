@@ -1,4 +1,19 @@
-// === Variables ===
+// Breakpoints & mixin
+$breakpoints: (
+  xs: 400px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@mixin respond($bp) {
+  $size: map-get($breakpoints, $bp);
+  @if $size == null { @error "Unknown breakpoint: #{$bp}"; }
+  @media screen and (max-width: $size) { @content; }
+}
+
+// Variables 
 $font-main: Arial, sans-serif;
 $text-color: #333;
 $brand-1: #ff7e5f;
@@ -15,7 +30,7 @@ $h2-size: 32px;
 $h1-size: 48px;
 $body-size: 18px;
 
-// === Base ===
+// Base 
 body {
   font-family: $font-main;
   color: $text-color;
@@ -24,7 +39,7 @@ body {
 }
 h2 { font-size: $h2-size; }
 
-// === Navbar ===
+// Navbar 
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -57,7 +72,7 @@ h2 { font-size: $h2-size; }
   }
 }
 
-// === Primary Button ===
+// Primary Button
 .primary-btn {
   display: inline-block;
   padding: $btn-pad;
@@ -75,7 +90,7 @@ h2 { font-size: $h2-size; }
   }
 }
 
-// === Main Section ===
+// Main Section
 .main {
   display: flex;
   align-items: center;
@@ -88,7 +103,7 @@ h2 { font-size: $h2-size; }
   img{ width: 40%; }
 }
 
-// === Sections & Cards ===
+// Sections & Cards 
 .features { background: $bg-light; }
 .center-section { text-align: center; padding: 50px 10px; }
 
@@ -102,7 +117,7 @@ h2 { font-size: $h2-size; }
   box-shadow: $shadow;
 }
 
-// === Footer ===
+// Footer 
 .footer {
   text-align: center;
   padding: 20px;
@@ -110,8 +125,8 @@ h2 { font-size: $h2-size; }
   color: white;
 }
 
-// === Responsive ===
-@media screen and (max-width: 992px) {
+// Responsive
+@include respond(lg) {
   .card-list {
     flex-direction: column;
     align-items: center;

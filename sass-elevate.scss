@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // Breakpoints & mixin
 $breakpoints: (
   xs: 400px,
@@ -8,10 +10,15 @@ $breakpoints: (
 );
 
 @mixin respond($bp) {
-  $size: map-get($breakpoints, $bp);
+  $size: map.get($breakpoints, $bp);
   @if $size == null { @error "Unknown breakpoint: #{$bp}"; }
   @media screen and (max-width: $size) { @content; }
 }
+
+@mixin max($w) {
+  @media screen and (max-width: $w) { @content; }
+}
+
 
 // Variables 
 $font-main: Arial, sans-serif;
@@ -57,6 +64,7 @@ h2 { font-size: $h2-size; }
   .nav-links {
     list-style: none;
     padding: 0;
+    margin: 0;
 
     li {
       display: inline-block;
@@ -133,4 +141,34 @@ h2 { font-size: $h2-size; }
     gap: 50px;
   }
   .card { width: 80%; }
+}
+@include max(576px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 8px;
+      li { margin: 0; }
+    }
+
+    .primary-btn { align-self: center; }
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 60px 10px;
+    text-align: center;
+
+    .content { width: 100%; }
+    img { width: min(80%, 320px); }
+  }
 }
